@@ -40,7 +40,7 @@ D) create function pasw_valid(a text) returns boolean as
     end;
     $$
     language  plpgsql
-select * from pasw_valid('chelo');
+select * from pasw_valid('hello');
 E) create function two_out(a integer,out a_plus integer,out a_minus integer) as
     $$
     begin
@@ -75,10 +75,10 @@ create trigger changes
     on customers
     for each row
     execute procedure log_name_changes();
-insert into customers(id,name) values(1,'elnur');
+insert into customers(id,name) values(1,'fara');
 update customers
-set name='elnur1'
-where name='elnur'
+set name='farabi1'
+where name='fara'
 select name_changed from customers;
 B) create or replace function age_inserts() returns trigger language plpgsql
     as $$
@@ -116,7 +116,7 @@ create trigger changes
     on products
     for each row
     execute procedure price_tax();
-insert into products(name,price) values('milk',100);
+insert into products(name,price) values('water',100);
 select * from products;
 D) create or replace function stop_del() returns trigger language plpgsql
     as $$
@@ -157,7 +157,7 @@ create trigger two_changes
     on passwords
     for each row
     execute procedure two_launches();
-insert into passwords(name,password) values ('elnur3','some');
+insert into passwords(name,password) values ('farabi','some');
 select * from passwords;
 
 
